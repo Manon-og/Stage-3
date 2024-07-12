@@ -14,7 +14,7 @@ const db = mysql2.createConnection({
 
 app.post('/', (req, res) => {
     const { favorites } = req.body;
-    const sql = `INSERT INTO programming_languages (favorites) VALUES (?)`;
+    const sql = `insert into programming_languages (favorites) values (?)`;
     db.query(sql, [favorites], (err, result) => {
         if (err) {
             res.status(500).send("Error creating record");
@@ -25,7 +25,7 @@ app.post('/', (req, res) => {
 });
 
 app.get('/languages', (req, res) => {
-    const sql = 'SELECT * FROM programming_languages';
+    const sql = 'select * from programming_languages';
     db.query(sql, (err, result) => {
         if (err) {
             res.status(500).send("Error retrieving data");
